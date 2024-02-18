@@ -20,7 +20,6 @@ form {
   padding: 20px;
   height: 350px;
   margin-top: 0px;
-  border: 1px solid #16db99;
   gap: 5px;
   border-radius: 5px;
   box-shadow: 1px 1px 30px 2px rgb(205, 204, 204);
@@ -38,8 +37,8 @@ label:first-child {
 }
 
 input {
-  border: 1px solid #16db99;
-  padding: 10px;
+  border: 1px solid #888888;
+  padding: 10px 15px;
   outline: none;
   width: 90%;
   border-radius: 5px;
@@ -48,7 +47,7 @@ input {
 button {
   padding: 12px 17px;
   border: none;
-  background-color: #16db99;
+  background-color: #1e1f1e;
   color: #ecfeff;
   text-transform: uppercase;
   border-radius: 5px;
@@ -61,7 +60,6 @@ button {
   position: absolute;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid #16db99;
   top: 10vh;
   left: 0;
   right: 0;
