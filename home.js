@@ -1,3 +1,4 @@
+// dont read my code its too گدود you cant read
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import {
   getDatabase,
@@ -79,7 +80,7 @@ paymentForm.addEventListener("submit", (e) => {
     e.target.discount.value == "JamshidHashimi" ||
     e.target.discount.value == "FuziaKargar"
   ) {
-    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks, All the food for you on this website is free for you because you used the special discount code</p>
+    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks, All the food for you on this website is free because you used the special discount code</p>
     `;
     bn.style.display = "none";
     thanksOrdaringMessage.style.display = "flex";
