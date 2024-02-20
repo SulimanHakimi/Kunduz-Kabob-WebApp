@@ -390,6 +390,7 @@ overflow-x: hidden;
   .thanks-ordaring-message {
     text-align: center;
   }
+ 
 
   .chooseDefault {
     height: 50vh;
@@ -415,4 +416,7 @@ overflow-x: hidden;
     border-radius: 5px;
   }
   
+}
+.message{
+  text-align: center;
 }
