@@ -99,6 +99,15 @@ completeOrder.addEventListener("click", () => {
 });
 let paymentForm = document.querySelector("#payment-form");
 let bn = document.querySelector(".bn");
+get(ref(db, "data/" + uuid))
+  .then((snapshot) => {
+    popup(snapshot);
+    var nameUser =snapshot.val().name;
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
 paymentForm.addEventListener("submit", (e) => {
   e.preventDefault();
   if (
@@ -107,7 +116,7 @@ paymentForm.addEventListener("submit", (e) => {
     e.target.discount.value == "JamshidHashimi" ||
     e.target.discount.value == "FuziaKargar"
   ) {
-    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks, All the food for you on this website is free because you used the special discount code</p>
+    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks, All the food for you on this website is free because you used the special discount code <br> please check your email you received an email</p>
     `;
     bn.style.display = "none";
     thanksOrdaringMessage.style.display = "flex";
@@ -115,7 +124,7 @@ paymentForm.addEventListener("submit", (e) => {
     continair.style.pointerEvents = "auto";
     continair.style.filter = "blur(0px)";
   } else {
-    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks! Your order is on its way!</p>
+    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks! Your order is on its way! <br> please check your email you received an email</p>
     `;
     thanksOrdaringMessage.style.display = "flex";
     bn.style.display = "none";
@@ -124,12 +133,28 @@ paymentForm.addEventListener("submit", (e) => {
     continair.style.pointerEvents = "auto";
     continair.style.filter = "blur(0px)";
   }
-});
+  Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "afgsuliman50@gmail.com",
+    Password : "7EF6A714487FB30E1CB625BF80ABE1B0B840",
+    To : 'afgimran50@gmail.com',
+    From : "afgsuliman50@gmail.com",
+    Subject :  "Thank you for your order!",
+    Body : `Hi Customer ,
 
-get(ref(db, "data/" + uuid))
-  .then((snapshot) => {
-    popup(snapshot);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+    We are so happy that you chose Kunduz Kabob for your meal. We hope you enjoyed our Foods. Your satisfaction is our priority.
+    
+    Your order number is 23 . It should arrive at your doorstep within 30 min.
+
+    We would love to hear your feedback on our service and food quality.
+
+    Thank you for your order and your support. We look forward to serving you again soon!
+
+    Sincerely,
+    Kunduz Kabob Team
+
+    `,
+}).then(
+  message => console.log(message)
+);
+  ;});
