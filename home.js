@@ -22,6 +22,7 @@ const db = getDatabase();
 let uuid = window.localStorage.getItem("id");
 
 let order = [["Green tea", 0]];
+
 let addCard = document.querySelectorAll(".add-card");
 let orderPrices = document.querySelector(".order-prices");
 let orderItamPrice = document.querySelector(".totalPrice");
@@ -64,7 +65,6 @@ addCard.forEach((card) => {
   });
   card.addEventListener("click", () => {
     var prevSibling = card.previousElementSibling;
-    console.log();
     let itemName = prevSibling.querySelector("div>span").firstChild.nodeValue;
     let itemPrice = prevSibling
       .querySelector(".price")
@@ -102,7 +102,6 @@ let bn = document.querySelector(".bn");
 get(ref(db, "data/" + uuid))
   .then((snapshot) => {
     popup(snapshot);
-    var nameUser = snapshot.val().name;
   })
   .catch((err) => {
     console.log(err);
@@ -133,25 +132,25 @@ paymentForm.addEventListener("submit", (e) => {
     continair.style.filter = "blur(0px)";
   }
   Email.send({
-    Host: "smtp.elasticemail.com",
-    Username: "afgsuliman50@gmail.com",
-    Password: "7EF6A714487FB30E1CB625BF80ABE1B0B840",
+    SecureToken: "293cbc03-ab9d-45d4-af64-ac1a79eaa894 ",
     To: e.target.email.value,
     From: "afgsuliman50@gmail.com",
     Subject: "Thank you for your order!",
-    Body: `Hi Customer ,
+    Body: `<h1>Hi Customer</h1>
 
-    We are so happy that you chose Kunduz Kabob for your meal. We hope you enjoyed our Foods. Your satisfaction is our priority.
-    
-    Your order number is 23 . It should arrive at your doorstep within 30 min.
-
-    We would love to hear your feedback on our service and food quality.
-
-    Thank you for your order and your support. We look forward to serving you again soon!
-
-    Sincerely,
-    Kunduz Kabob Team
-
-    `,
+     <p> We are so happy that you chose Kunduz Kabob for your meal. We hope you enjoyed our Foods. Your satisfaction is our priority.<br>
+      
+     Your order number is 23 . It should arrive at your doorstep within 30 min.<br>
+  
+     We would love to hear your feedback on our service and food quality.
+  
+     Thank you for your order and your support. We look forward to serving you again soon!</p>
+  
+     <h4>Sincerely,<br>
+     Kunduz Kabob Team</h4>
+     <br>
+     <div style="width:480px"><iframe allow="fullscreen" frameBorder="0" height="320" src="https://giphy.com/embed/L0owGTy0mQ4L5PVmUo/video" width="480"></iframe></div>
+  
+     `,
   }).then((message) => console.log(message));
 });
