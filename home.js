@@ -1,4 +1,5 @@
-// dont read my code its too گدود you cant read
+// dont try to read my code its too گدود you cant  it
+let isLogin = false;
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import {
   getDatabase,
@@ -20,7 +21,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 let uuid = window.localStorage.getItem("id");
 
-let order = [["Tea", 0]];
+let order = [["Green tea", 0]];
 let addCard = document.querySelectorAll(".add-card");
 let orderPrices = document.querySelector(".order-prices");
 let orderItamPrice = document.querySelector(".totalPrice");
@@ -86,7 +87,7 @@ paymentForm.addEventListener("submit", (e) => {
     thanksOrdaringMessage.style.display = "flex";
     paymentCard.style.display = "none";
     continair.classList.remove("acive-blur");
-    continair.style.pointerEvents = "";
+    continair.style.pointerEvents = "auto";
   } else {
     thanksOrdaringMessage.innerHTML = `<p class="message">Thanks! Your order is on its way!</p>
     `;
@@ -101,8 +102,33 @@ paymentForm.addEventListener("submit", (e) => {
 
 get(ref(db, "data/" + uuid))
   .then((snapshot) => {
-    document.querySelector("#email").value = snapshot.val().email;
+    popup(snapshot);
   })
   .catch((err) => {
     console.log(err);
   });
+function popup(snapshot) {
+  document.querySelector("#email").value = snapshot.val().email;
+  document.querySelector(".popup").style.display = "flex";
+
+  document.querySelector(
+    ".popupDescription"
+  ).innerHTML = ` You have successfully entered your account with your <br />
+   email: <span class="email-nam">${
+     snapshot.val().email
+   }</span> <br />name: <span class="email-nam">${
+    snapshot.val().name
+  }</span> <br />Click the Accept button to confirm
+  your information<br />Here, all your information is safe!`;
+  continair.style.pointerEvents = "none";
+  continair.style.filter = "blur(20px)";
+}
+document.querySelector(".acceptButton").addEventListener("click", () => {
+  document.querySelector(".popup").style.display = "none";
+  continair.style.pointerEvents = "auto";
+  continair.style.filter = "blur(0px)";
+});
+
+document.querySelector(".declineButton").addEventListener("mouseenter", () => {
+  document.querySelector(".buttonContainer").classList.toggle("btn-rev");
+});

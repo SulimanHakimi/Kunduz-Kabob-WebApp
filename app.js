@@ -25,7 +25,7 @@ loginForm.addEventListener("submit", (e) => {
 
   addData(e, uuid);
 });
-window.localStorage.setItem("id",uuid)
+window.localStorage.setItem("id", uuid);
 function addData(e, uuid) {
   set(ref(db, "data/" + uuid), {
     name: e.target.name.value,
@@ -39,42 +39,3 @@ function addData(e, uuid) {
       console.log(err);
     });
 }
-
-
-// //////////////////////////////////////////////////////////////////////////
-// // Define the cart as an array
-// var cart = [];
-
-// // Function to add an item to the cart
-// function addItem(item) {
-//   // Check if the item is already in the cart
-//   if (cart.indexOf(item) === -1) {
-//     // Add the item to the cart
-//     cart.push(item);
-//     // Display the updated cart
-//     displayCart();
-//   }
-// }
-
-// // Function to display the cart
-// function displayCart() {
-//   var cartList = document.getElementById("cart-list");
-//   cartList.innerHTML = "";
-//   for (var i = 0; i < cart.length; i++) {
-//     cartList.innerHTML += "<li>" + cart[i] + "</li>";
-//   }
-// }
-
-// // Add items to the cart when they are clicked
-// document.getElementById("item-1").addEventListener("click", function () {
-//   addItem("Item 1");
-// });
-// document.getElementById("item-2").addEventListener("click", function () {
-//   addItem("Item 2");
-// });
-// document.getElementById("item-3").addEventListener("click", function () {
-//   addItem("Item 3");
-// });
-
-// // Display the cart when the page loads
-// displayCart();
