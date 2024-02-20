@@ -102,7 +102,7 @@ let bn = document.querySelector(".bn");
 get(ref(db, "data/" + uuid))
   .then((snapshot) => {
     popup(snapshot);
-    var nameUser =snapshot.val().name;
+    var nameUser = snapshot.val().name;
   })
   .catch((err) => {
     console.log(err);
@@ -128,19 +128,18 @@ paymentForm.addEventListener("submit", (e) => {
     `;
     thanksOrdaringMessage.style.display = "flex";
     bn.style.display = "none";
-
     paymentCard.style.display = "none";
     continair.style.pointerEvents = "auto";
     continair.style.filter = "blur(0px)";
   }
   Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "afgsuliman50@gmail.com",
-    Password : "7EF6A714487FB30E1CB625BF80ABE1B0B840",
-    To : 'afgimran50@gmail.com',
-    From : "afgsuliman50@gmail.com",
-    Subject :  "Thank you for your order!",
-    Body : `Hi Customer ,
+    Host: "smtp.elasticemail.com",
+    Username: "afgsuliman50@gmail.com",
+    Password: "7EF6A714487FB30E1CB625BF80ABE1B0B840",
+    To: e.target.email.value,
+    From: "afgsuliman50@gmail.com",
+    Subject: "Thank you for your order!",
+    Body: `Hi Customer ,
 
     We are so happy that you chose Kunduz Kabob for your meal. We hope you enjoyed our Foods. Your satisfaction is our priority.
     
@@ -154,7 +153,5 @@ paymentForm.addEventListener("submit", (e) => {
     Kunduz Kabob Team
 
     `,
-}).then(
-  message => console.log(message)
-);
-  ;});
+  }).then((message) => console.log(message));
+});
