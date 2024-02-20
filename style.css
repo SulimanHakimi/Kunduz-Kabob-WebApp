@@ -23,9 +23,6 @@ body {
   justify-content: space-between;
   gap: 30px;
 }
-.acive-blur {
-  filter: blur(20px);
-}
 header {
   height: 120px;
   position: relative;
