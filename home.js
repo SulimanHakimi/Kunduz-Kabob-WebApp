@@ -75,13 +75,13 @@ addCard.forEach((card) => {
     orderPrices.insertAdjacentHTML(
       "afterbegin",
       `
-    <div class="crds-price-order">
-        <div class="dvp">
-            <span class="order-itam-name">${order[order.length - 1][0]}</span>
-            <button class="order-itam-remove-btn">remove</button>
-        </div>
-        <p class="order-itam-price">${order[order.length - 1][1]} Af</p>
-    </div>
+  <div class="crds-price-order">
+      <div class="dvp">
+          <span class="order-itam-name">${order[order.length - 1][0]}</span>
+          <button class="order-itam-remove-btn">remove</button>
+      </div>
+      <p class="order-itam-price">${order[order.length - 1][1]} Af</p>
+  </div>
 `
     );
 
