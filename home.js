@@ -115,7 +115,7 @@ paymentForm.addEventListener("submit", (e) => {
     e.target.discount.value == "JamshidHashimi" ||
     e.target.discount.value == "FuziaKargar"
   ) {
-    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks, All the food for you on this website is free because you used the special discount code <br> please check your email you received an email</p>
+    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks, All the food for you on this website is free because you used the special discount code <br> please check your email you received an email <br><br><span class="email-mess">if  you have not received an email please check the spam section</span></p></p>
     `;
     bn.style.display = "none";
     thanksOrdaringMessage.style.display = "flex";
@@ -123,7 +123,7 @@ paymentForm.addEventListener("submit", (e) => {
     continair.style.pointerEvents = "auto";
     continair.style.filter = "blur(0px)";
   } else {
-    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks! Your order is on its way! <br> please check your email you received an email</p>
+    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks! Your order is on its way! <br> please check your email you received an email <br><span class="email-mess">if  you have not received an email please check the spam section</span></p>
     `;
     thanksOrdaringMessage.style.display = "flex";
     bn.style.display = "none";
