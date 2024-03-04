@@ -13,11 +13,436 @@
       referrerpolicy="no-referrer"
     />
   </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,400;1,900&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Smythe&display=swap");
+    * {
+      padding: 0%;
+      margin: 0%;
+      box-sizing: border-box;
+      font-family: "Smythe", system-ui;
+      user-select: none;
+    }
+    body {
+      width: 100%;
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .continair {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    header {
+      height: 120px;
+      position: relative;
+    }
+    header span {
+      font-size: 45px;
+    }
+    header p {
+      font-size: 30px;
+    }
+    header div {
+      display: flex;
+      padding: 0px 8vw;
+      flex-direction: column;
+      color: rgb(255, 255, 255);
+      justify-content: center;
+      gap: 10px;
+      height: 100%;
+      position: relative;
+    }
+    header img {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      object-fit: cover;
+      background-position: center;
+    }
+    .iteam-lists {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      height: 400px;
+    }
+    .iteam-lists-row {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .item {
+      width: 500px;
+      height: 120px;
+      margin: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #d2d2d2;
+    }
+    .your-order,
+    .bn {
+      width: 80vw;
+      height: fit-content;
+      display: flex;
+      margin: 0px auto;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .order-prices {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 40vw;
+      align-items: center;
+      gap: 20px;
+      height: fit-content;
+    }
+    .crds-price-order {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .dvp {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .order-title {
+      font-weight: 600;
+      font-size: 45px;
+    }
+    .order-itam-remove-btn,
+    .pp {
+      border: none;
+      background-color: inherit;
+      font-size: 18px;
+      color: #bbbbbb;
+      cursor: pointer;
+    }
+    .order-itam-name {
+      font-size: 30px;
+      font-weight: 600;
+    }
+    .order-itam-price {
+      font-weight: 600;
+      font-size: 25px;
+    }
+    .total-prices {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 20px 0px;
+      border-top: 3px solid #000000;
+      align-items: center;
+    }
+    .complete-order-btn,
+    .pay-btn,
+    .random-btn {
+      background: #16db99;
+      border: none;
+      font-weight: 700;
+      font-size: 20px;
+      color: #ffff;
+      border-radius: 5px;
+      font-family: "Roboto", sans-serif;
+      width: 550px;
+      box-shadow: 0px 0px 10px rgb(238, 235, 235);
+      padding: 20px 10px;
+      cursor: pointer;
+    }
+    .item-card-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .icon-items {
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      font-size: 60px;
+      width: 70px;
+      height: 90px;
+    }
+    .item-card-row-right-mm {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .add-card {
+      width: 50px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      font-size: 20px;
+      border: 1px solid #bbbbbb;
+      border-radius: 50%;
+    }
+    /*  */
+    .payment-card {
+      position: fixed;
+      left: 0;
+      top: 50px;
+      right: 0;
+      text-align: center;
+      background-color: white;
+      display: none;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 500px;
+      width: 40vw;
+      border-radius: 10px;
+      box-shadow: 0px 0px 100px gray;
+      margin: 0px auto;
+    }
+    .pay-btn {
+      width: 35vw;
+      font-family: "Roboto", sans-serif;
+      height: 10vh;
+    }
+    .payment-card h1 {
+      font-family: "Roboto", sans-serif;
+    }
+    .payment-card form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .payment-card form input {
+      width: 35vw;
+      border: 1px solid #757575;
+      outline: none;
+      font-family: "Roboto", sans-serif;
+      height: 65px;
+      font-size: 18px;
+      border-radius: 5px;
+      padding: 10px 15px;
+    }
+    .payment-card form input:hover,
+    .payment-card form input:focus {
+      border: 1px solid #16db99;
+    }
+    .img-qabuli {
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    /*  */
+
+    .thanks-ordaring-message {
+      width: fit-content;
+      height: 120px;
+      margin: 0px auto;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .thanks-ordaring-message {
+      font-size: 32px;
+    }
+
+    .chooseDefault {
+      height: 250px;
+      margin: 0px auto;
+      display: none;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+    .chooseDefault p {
+      font-size: 28px;
+      font-weight: 600;
+    }
+    .random-btn {
+      width: 15vw;
+      border: 1px solid #16db99;
+      background: white;
+      color: #16db99;
+    }
+    .btn-rev {
+      flex-direction: row-reverse;
+    }
+    .popup {
+      width: 400px;
+      height: fit-content;
+      background-color: rgb(255, 255, 255);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 30px;
+      gap: 30px;
+      position: fixed;
+      top: 20%;
+      left: 30%;
+      box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.062);
+    }
+
+    .popupHeading {
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .popupDescription {
+      font-size: 25px;
+      font-weight: 600;
+      color: rgb(66, 66, 66);
+    }
+
+    .buttonContainer {
+      display: flex;
+      gap: 20px;
+    }
+
+    .acceptButton {
+      width: 80px;
+      height: 50px;
+      background-color: #16db99;
+      transition-duration: 0.2s;
+      border: none;
+      color: rgb(241, 241, 241);
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 30px;
+      font-size: 20px;
+    }
+
+    .declineButton {
+      width: 80px;
+      height: 50px;
+      background-color: rgb(218, 218, 218);
+      transition-duration: 0.2s;
+      color: rgb(46, 46, 46);
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 30px;
+      font-size: 20px;
+    }
+
+    .declineButton:hover {
+      background-color: #ebebeb;
+      transition-duration: 0.2s;
+    }
+
+    .acceptButton:hover {
+      background-color: #16db9971;
+      transition-duration: 0.2s;
+    }
+    .email-nam {
+      color: #16db99;
+    }
+
+    @media only screen and (max-width: 1050px) {
+      .continair {
+        width: 100vw;
+      }
+      body {
+        overflow-x: hidden;
+      }
+      header span {
+        font-size: 40px;
+      }
+      header p {
+        font-size: 23px;
+      }
+      header div {
+        padding: 0px 50px;
+      }
+
+      .iteam-lists-row {
+        display: flex;
+        flex-direction: column;
+      }
+      .item {
+        width: 450px;
+      }
+      .your-order,
+      .bn {
+        width: 70vw;
+        height: fit-content;
+      }
+      .item {
+        width: 70vw;
+      }
+      .total-prices {
+        width: 70vw;
+      }
+      .complete-order-btn {
+        width: 70vw;
+      }
+
+      /*  */
+      .payment-card {
+        position: fixed;
+        top: 5%;
+        left: 0;
+        height: 90vh;
+        width: 70vw;
+      }
+      .pay-btn {
+        width: 60vw;
+      }
+      .payment-card h1 {
+        font-size: 25px;
+      }
+      .payment-card form input {
+        width: 60vw;
+        height: 12vh;
+      }
+      .thanks-ordaring-message {
+        text-align: center;
+      }
+
+      .chooseDefault {
+        height: 50vh;
+        width: 70vw;
+      }
+      .chooseDefault p {
+        text-align: center;
+        font-size: 23px;
+      }
+      .random-btn {
+        width: 70vw;
+      }
+      .order-prices {
+        width: 70vw;
+      }
+      .btn-rev {
+        flex-direction: row-reverse;
+      }
+      .popup {
+        width: 70vw;
+        top: 15%;
+        left: 15%;
+        border-radius: 5px;
+      }
+    }
+    .message {
+      text-align: center;
+    }
+    .email-mess {
+      color: red;
+    }
+  </style>
   <body>
     <div class="continair">
       <header>
         <img
-          src="https://s3-alpha-sig.figma.com/img/8453/64ec/acaeaea44c5e3a8cd7159c5d52f26662?Expires=1708905600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FO8a8ArbUJ6gn2GSmVU3l7qjfEr6dptj4QxgAa9lMlGDTZTE91GwcrI9aluC4zSL6uYhDO8JkBzXbTAoh0XNnMUooAhbJhXNR4-aWRJ-YwNWPlwRMuzkX1-oNL-U5vWcJuSDM~V6XFKhjqHRYh0fXrQU0qXzHdfaQq2wN2zcWvrqkxAiLxp~755HNWGB5yJJEJi6T8Hn-gcaDD6e99eqxxE-rN2o4ZOHtA-b~tN4BdvvuniIBRQobuM1-QvhrS0m-nISFPtOLlKih98eiro4TX1G8CNVtsALW0WLQ5Dqjci6~ipvs6e4AguMiPtpZwTfA3BG8oHRQsONd4v1O9YF2w__"
+          src="https://w0.peakpx.com/wallpaper/141/1008/HD-wallpaper-food-pasta-mushroom-still-life-tomato.jpg"
           alt=""
         />
 
@@ -129,7 +554,9 @@
               <div class="crds-price-order">
                 <div class="dvp">
                   <span class="order-itam-name">Green Tea</span>
-                  <button class="order-itam-remove-btn">remove</button>
+                  <button class="order-itam-remove-btn" data-remove>
+                    remove
+                  </button>
                 </div>
                 <p class="order-itam-price">0 Af</p>
               </div>
@@ -185,9 +612,7 @@
     </div>
     <div class="popup">
       <p class="popupHeading">From Suliman Hakimi.</p>
-      <p class="popupDescription">
-       
-      </p>
+      <p class="popupDescription"></p>
 
       <div class="buttonContainer">
         <button class="acceptButton">Accept</button>

@@ -1,5 +1,5 @@
 // dont try to read my code its too گدود you cant  it
-let isLogin = false;
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import {
   getDatabase,
@@ -30,6 +30,9 @@ let thanksOrdaringMessage = document.querySelector(".thanks-ordaring-message");
 let completeOrder = document.querySelector("#complete-order");
 let paymentCard = document.querySelector(".payment-card");
 let continair = document.querySelector(".continair");
+document.addEventListener("click", (e) => {
+  console.log(e.target.dataset);
+});
 function popup(snapshot) {
   document.querySelector("#email").value = snapshot.val().email;
   document.querySelector(".popup").style.display = "flex";
@@ -78,7 +81,7 @@ addCard.forEach((card) => {
   <div class="crds-price-order">
       <div class="dvp">
           <span class="order-itam-name">${order[order.length - 1][0]}</span>
-          <button class="order-itam-remove-btn">remove</button>
+          <button class="order-itam-remove-btn" data-remove>remove</button>
       </div>
       <p class="order-itam-price">${order[order.length - 1][1]} Af</p>
   </div>
@@ -123,7 +126,7 @@ paymentForm.addEventListener("submit", (e) => {
     continair.style.pointerEvents = "auto";
     continair.style.filter = "blur(0px)";
   } else {
-    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks! Your order is on its way! <br> please check your email you received an email <br><span class="email-mess">if  you have not received an email please check the spam section</span></p>
+    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks! Your order is on its way! <br> please check your email you received an email <br></p>
     `;
     thanksOrdaringMessage.style.display = "flex";
     bn.style.display = "none";
