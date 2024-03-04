@@ -118,7 +118,7 @@ paymentForm.addEventListener("submit", (e) => {
     e.target.discount.value == "JamshidHashimi" ||
     e.target.discount.value == "FuziaKargar"
   ) {
-    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks, All the food for you on this website is free because you used the special discount code <br> please check your email you received an email <br><br><span class="email-mess">if  you have not received an email please check the spam section</span></p></p>
+    thanksOrdaringMessage.innerHTML = `<p class="message">Thanks, All the food for you on this website is free because you used the special discount code <br> please check your email you received an email <br><br></p>
     `;
     bn.style.display = "none";
     thanksOrdaringMessage.style.display = "flex";
@@ -152,7 +152,6 @@ paymentForm.addEventListener("submit", (e) => {
      <h4>Sincerely,<br>
      Kunduz Kabob Team</h4>
      <br>
-     <div style="width:480px"><iframe allow="fullscreen" frameBorder="0" height="320" src="https://giphy.com/embed/L0owGTy0mQ4L5PVmUo/video" width="480"></iframe></div>
   
      `,
   }).then((message) => console.log(message));

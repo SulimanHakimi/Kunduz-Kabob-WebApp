@@ -32,7 +32,7 @@ function addData(e, uuid) {
     password: e.target.password.value,
   })
     .then(() => {
-      console.log("ok");
+      
       Email.send({
         SecureToken: "293cbc03-ab9d-45d4-af64-ac1a79eaa894 ",
         To: e.target.email.value,
@@ -63,13 +63,11 @@ function addData(e, uuid) {
     
          <h4>Best regards,<br>
          The Kunduz Kabob Team</h4>
-         <br>
-         <div style="width:480px"><iframe allow="fullscreen" frameBorder="0" height="320" src="https://giphy.com/embed/L0owGTy0mQ4L5PVmUo/video" width="480"></iframe></div>
       
          `,
       }).then((message) => console.log(message));
       window.location.href = "./home.html";
-      console.log("ok");
+      
     })
     .catch((err) => {
       console.log(err);
